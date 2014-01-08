@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .shadowChild {
+                background-color: red;
+            }
+        </style>
+        <script src="http://yandex.st/jquery/2.0.3/jquery.min.js"></script>
+        <script>
+            $(function() {
+                var shadowHost = document.querySelector("#welcomeMessage");
+                var shadowRoot = shadowHost.webkitCreateShadowRoot();
+                shadowRoot.innerHTML = [
+                        "<style>",
+                            "@host{ ",
+                            "#welcomeMessage{ ",
+                                "font-size: 28px;",
+                                "font-family:cursive;",
+                                "font-weight:bold;",
+                            "}",
+                            ".child {",
+                                "color: red;",
+                            "}",
+                            "}",
+                        "</style>",
+                        "<div>",
+                        "Shadow DOM offers us Encapsulation from",
+                        "<ul class='child'>",
+                        "<li>Scripts</li>",
+                        "<li>Styles</li>",
+                        "</ul>",
+                        "</div>"
+                        ].join(',').replace(/,/g,"");
+            });
+        </script>
+    </head>
+    <body>
+        <div id="welcomeMessage">Welcome to My World</div>
+    </body>
+</html>
