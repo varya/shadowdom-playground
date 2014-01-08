@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="http://yandex.st/jquery/2.0.3/jquery.min.js"></script>
+        <script>
+            $(function() {
+                var shadowHost = document.querySelector("#welcomeMessage");
+                var shadowRoot = shadowHost.webkitCreateShadowRoot();
+                shadowRoot.textContent = "Hello Shadow DOM World";
+            });
+        </script>
     </head>
     <body>
+        <div id="welcomeMessage">Welcome to My World</div>
     </body>
 </html>
